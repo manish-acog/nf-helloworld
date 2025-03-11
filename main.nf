@@ -129,6 +129,7 @@ process HELLO_WORLD {
     echo "Processing file: ${input_file}"
     echo "Hello World!" > output.txt
     cat ${input_file} >> output.txt
+    cat output.txt
      """
 }
 // TOO HERE
