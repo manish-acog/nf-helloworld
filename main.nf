@@ -110,17 +110,26 @@ process OBTAIN_PIPELINE_METADATA {
     '''
 }
 
-// EDIT HERE
-process hello_world {
+process HELLO_WORLD {
     label "process_large"
     label "hello_world"
     echo true
     publishDir "${params.outdir}", mode: "copy"
 
+    input:
+    path input_file
+
+
+    output:
+    path "output.txt", emit: result
+
+
     script:
     """
-    echo "hello world!"
-    """
+    echo "Processing file: ${input_file}"
+    echo "Hello World!" > output.txt
+    cat ${input_file} >> output.txt
+     """
 }
 // TOO HERE
 
@@ -200,7 +209,7 @@ workflow test_workflow {
     
 // Run process1 with our input channel parameter
  // EDIT HERE
-        hello_world()
+        hello_world(ch_input_file)
 
 }
 
