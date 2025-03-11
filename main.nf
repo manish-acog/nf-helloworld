@@ -209,7 +209,7 @@ workflow test_workflow {
     
 // Run process1 with our input channel parameter
  // EDIT HERE
-        hello_world(ch_input_file)
+        HELLO_WORLD(ch_input_file)
 
 }
 
